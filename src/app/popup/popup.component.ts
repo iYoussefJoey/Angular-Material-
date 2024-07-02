@@ -27,9 +27,9 @@ import {
   styleUrl: './popup.component.css',
 })
 export class PopupComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialogRef<PopupComponent>) {}
   closePopUp(){
-    this.dialog.closeAll()
+    this.dialog.close()
   }
 
 }
