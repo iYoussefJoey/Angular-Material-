@@ -78,11 +78,21 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource._updateChangeSubscription();
   }
   openPopUp(){
-    this.dialog.open(PopupComponent,{
-      width:'60%'
+    let _popup = this.dialog.open(PopupComponent,{
+      width:'60%',
+      enterAnimationDuration:'500ms',
+      exitAnimationDuration:'400ms'
+      ,data:{
+        title:'User Data',
+        
+      }
+    });
+    _popup.afterClosed().subscribe((title)=>{
+      console.log(title)
     })
   }
   closePopUp(){
     this.dialog.closeAll();
   }
+  
 }

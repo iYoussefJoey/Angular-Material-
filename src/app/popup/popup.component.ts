@@ -27,12 +27,14 @@ import {
   styleUrl: './popup.component.css',
 })
 export class PopupComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) data:any ,private dialog: MatDialogRef<PopupComponent>) {}
+  inputData:any
+  closeMessage:string = 'Close Used Directive'
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any ,private dialog: MatDialogRef<PopupComponent>) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+    this.inputData= this.data;
+    }
   closePopUp(){
-    this.dialog.close()
+    this.dialog.close('Close this function')
   }
 
 }
