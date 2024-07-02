@@ -12,6 +12,8 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-popup',
@@ -22,6 +24,8 @@ import {
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './popup.component.html',
   styleUrl: './popup.component.css',
@@ -29,12 +33,26 @@ import {
 export class PopupComponent implements OnInit {
   inputData:any
   closeMessage:string = 'Close Used Directive'
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any ,private dialog: MatDialogRef<PopupComponent>) {}
+  formPop: FormGroup;
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any 
+  ,private dialog: MatDialogRef<PopupComponent>,
+  private formB:FormBuilder
+) {
+  this.formPop= this.formB.group({
+    name: (''),
+    email:(''),
+    phone:(''),
+    status:(''),
+  })
+}
   ngOnInit(): void {
     this.inputData= this.data;
     }
   closePopUp(){
     this.dialog.close('Close this function')
+  }
+  onSave(formPop:FormGroup){
+    console.log(this.formPop)
   }
 
 }

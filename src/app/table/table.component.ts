@@ -52,7 +52,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   isEditing:boolean[] = []
-  constructor(private _master: MasterService, private dialog:MatDialog) {}
+  constructor(private _master: MasterService, private dialog:MatDialog,
+   ) {}
 
   ngOnInit(): void {
     this.dataSource.data = this._master.getMembersNames();
@@ -79,7 +80,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   openPopUp(){
     let _popup = this.dialog.open(PopupComponent,{
-      width:'60%',
+      width:'50%',
       enterAnimationDuration:'500ms',
       exitAnimationDuration:'400ms'
       ,data:{
