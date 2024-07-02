@@ -1,0 +1,210 @@
+<!-- <mat-card class="example-card" appearance="outlined">
+  <mat-card-header class="mid">
+    <div class="space-between">
+      <mat-card-title class="right">Gate 01</mat-card-title>
+      <mat-card-title class="left">
+        <mat-icon class="bg">tv</mat-icon>
+        <mat-icon class="bg">perm_media</mat-icon>
+      </mat-card-title>
+    </div>
+  </mat-card-header>
+  <img mat-card-image src="../../assets/R.jfif" alt="Photo of a Shiba Inu" />
+  <mat-card-content>
+    <div class="inline">
+      <div>
+        <mat-icon matBadgePosition="below" matBadgeColor="primary" matBadge="1"
+          >home</mat-icon
+        >
+      </div>
+      <div>
+        <mat-icon matBadgePosition="below" matBadge="1" matBadgeColor="primary"
+          >home</mat-icon
+        >
+      </div>
+      <div>
+        <mat-icon matBadgePosition="below" matBadge="1" matBadgeColor="primary"
+          >home</mat-icon
+        >
+      </div>
+      <div>
+        <mat-icon matBadgePosition="below" matBadge="1" matBadgeColor="primary"
+          >home</mat-icon
+        >
+      </div>
+    </div>
+    <div>
+        <mat-form-field class="botton">
+          <mat-label class="align-self-auto">
+          <strong>WW0000</strong> 00:00:00</mat-label
+          >
+          <input matInput disabled="true" />
+        </mat-form-field>
+      </div>
+    <div>
+      <mat-form-field class="botton">
+        <mat-label class="align-self-auto">
+          <mat-icon>person</mat-icon> Jan Kowalski</mat-label
+        >
+        <input matInput disabled="true" />
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="botton">
+          <mat-label class="align-self-auto">
+            <mat-icon>library_books</mat-icon>ID 4534534</mat-label
+          >
+          <input matInput disabled="true" />
+        </mat-form-field>
+      </div>
+      <div>
+        <label class="left-side"><strong>Errors</strong></label>
+        <mat-form-field class="botton">
+            <mat-label class="mid-text" >NO Warnings.</mat-label>
+            <input  matInput disabled="true"  />
+        </mat-form-field>
+      </div>
+      <div>
+        <label class="left-side"><strong>Warnings.</strong></label>
+        <mat-form-field class="botton">
+            <mat-label class="mid-text" >NO Warnings.</mat-label>
+            <input  matInput disabled="true"  />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="long" color="primary">Choose Gate</button>
+      </mat-card-actions>
+    </mat-card>
+    <hr> -->
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+  <mat-card>
+    <div class="m-all">
+      <mat-card-content>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label> <mat-icon>person</mat-icon> Enter your name</mat-label>
+            <input
+              formControlName="name"
+              matInput
+              placeholder="el ma3lm rezik"
+            />
+            @if (customerForm.get('name')?.hasError('required')) {<mat-error
+              >Name is required</mat-error
+            >} @if (customerForm.get('name')?.hasError('minlength')){
+            <mat-error> Name should be at least 2 characters</mat-error>
+            } @if (customerForm.get('name')?.hasError('maxlength')){
+            <mat-error> Name should be at least 13 characters</mat-error>
+            }
+            <mat-hint>Enter your name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> <mat-icon>email</mat-icon> Enter your email</mat-label>
+            <input
+              formControlName="email"
+              matInput
+              placeholder="pat@example.com"
+            />
+            @if (customerForm.get('email')?.hasError('required')) {<mat-error
+              >E-Mail is required</mat-error
+            >} @if (customerForm.get('email')?.hasError('email')) {<mat-error
+              >Pick a valid mail</mat-error
+            >}
+            <mat-hint>Enter your E-mail</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label> <mat-icon>phone</mat-icon> Phone number</mat-label>
+            <input
+              formControlName="phone"
+              type="tel"
+              matInput
+              placeholder="(ex)01011166221"
+            />
+            @if (customerForm.get('phone')?.hasError('required')) {<mat-error
+              >Phone is required</mat-error
+            >} @if (customerForm.get('phone')?.hasError('pattern')) {<mat-error
+              >Phone number must be 11 numbers and start with 01</mat-error
+            >}
+            <mat-hint>Enter your area code</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> <mat-icon>flag</mat-icon>Country</mat-label>
+            <mat-select formControlName="country">
+              <mat-option    [value]="country"
+                *ngFor="let country of countryList"
+                >{{ country }}
+              </mat-option>
+            </mat-select>
+            @if (customerForm.get('country')?.hasError('required')) {<mat-error
+              >Please pick your country</mat-error
+            >}
+            <mat-hint>Here's the dropdown arrow</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="all-width">
+          <mat-form-field>
+            <mat-label> <mat-icon>address</mat-icon> Address</mat-label>
+            <textarea formControlName="address" matInput id=""></textarea>
+            @if (customerForm.get('address')?.hasError('required')) {<mat-error>
+              Address is required </mat-error
+            >}
+          </mat-form-field>
+        </div>
+
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label> <mat-icon>work</mat-icon> Term</mat-label>
+            <input formControlName="term" [matAutocomplete]="auto" matInput />
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option [value]="item" *ngFor="let item of termsList">
+                {{ item }}
+              </mat-option>
+            </mat-autocomplete>
+            @if (customerForm.get('term')?.hasError('required')) {<mat-error>
+              Please pick your Days</mat-error
+            >}
+            <mat-hint> Choose how many days you worked!</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="dob" matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            @if (customerForm.get('dob')?.hasError('required')) {<mat-error
+              >Please pick a date</mat-error
+            >} @if (customerForm.get('dob')?.hasError('invalidDate'))
+            {<mat-error>Please pick a valid date</mat-error>}
+          </mat-form-field>
+        </div>
+        <div style="display: flex;">
+          <mat-radio-group formControlName="radiobutton" color="primary">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+          <mat-checkbox style="margin-left: auto  ;" formControlName="checkbox" color="warn">Active</mat-checkbox>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <div style="text-align: end">
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!customerForm.valid"
+            color="primary"
+          >
+            Save
+          </button>
+          <button mat-raised-button type="button" (click)="clearForm()" color="warn">Clear</button>
+        </div>
+      </mat-card-footer>
+    </div>
+  </mat-card>
+</form>

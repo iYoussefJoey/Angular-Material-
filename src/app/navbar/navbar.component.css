@@ -1,0 +1,22 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .example-button{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+  }
+  .onhover{
+  background-color:   #f44336  
+  }
+  .demo-section + .demo-section {
+    margin-top: 16px;
+  }
+  .pad
+{
+  margin:0 2px 0 2px;
+}
+ .cdhover{
+  background-color:darkgray
+ }

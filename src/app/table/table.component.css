@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+  }
+  mat-card{
+    margin: 2%;
+  }
+  button{
+    margin: 1%;
+  }
+  th{
+    background-color: black !important;
+    color: white;
+  }
+  .medium{
+    text-align: center;
+  }
+  .exam{
+    width: 25%;
+  }
+  .center
+  {
+    display: flex;
+    justify-content: center;
+
+  }

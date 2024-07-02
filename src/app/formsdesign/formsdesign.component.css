@@ -1,0 +1,90 @@
+/* mat-card{
+    border-radius: 2%;
+}
+.example-card {
+    max-width: 400px;
+    margin: 2%;
+  }
+  .space-between{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+.right{
+margin-right: auto;
+}
+.left{
+    
+    margin-left: auto;
+}
+.bg{
+    background-color: chartreuse;
+}
+mat-icon{
+    padding: 5px;
+    margin: 5px;
+}
+img{
+    width: 90%;
+    margin: auto;
+}
+.inline{
+    display: flex;
+    
+}
+.botton{
+    margin-top: 2%;
+    width: 100%;
+}
+.align-self-auto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-side
+{
+    text-align: start;
+    display: flex;
+}
+.mid-text{
+    text-align: right;
+}
+.long{
+    width: 100%;
+} */
+mat-card{
+    margin: 1%;
+    padding: 1%;
+}
+.example-container{
+    margin: 1%;
+}
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+
+.mat-mdc-form-field{
+    width: 49%;
+}
+.all-width .mat-mdc-form-field{
+    width: 97%;
+}
+mat-radio-group{
+    text-align: start;
+    display: flex;
+    margin-left: 1%;
+}
+
+button{
+    margin: 2px;
+}
+/* .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  } */
