@@ -7,6 +7,7 @@ import { SliderComponent } from './slider/slider.component';
 import { TableComponent } from './table/table.component';
 import { FormsdesignComponent } from './formsdesign/formsdesign.component';
 import { PopupComponent } from './popup/popup.component';
+import { AssociateComponent } from './associate/associate.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'home', pathMatch:'full'},
@@ -17,7 +18,7 @@ export const routes: Routes = [
     {path:'slider',component:SliderComponent},
     {path:'table',component:TableComponent},
     {path:'forms',component:FormsdesignComponent},
-    {path:'dialog',component:PopupComponent},
+    {path:'formarray',component:AssociateComponent},
 
 
 

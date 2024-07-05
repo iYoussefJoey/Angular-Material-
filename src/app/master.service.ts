@@ -1,36 +1,47 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Customer } from './customer';
+import { Countries } from './countries';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MasterService {
-
-  constructor() { }
-  getCountryList(){
+  constructor(private _http: HttpClient) {}
+  getCountryList() {
     return [
-      {code:'1st', name:'USA'},
-      {code:'2nd', name:'Canada'},
-      {code:'3rd', name:'UK'},
-      {code:'4th', name:'Greece'},
-      {code:'5th', name:'Japan'},
+      { code: '1st', name: 'USA' },
+      { code: '2nd', name: 'Canada' },
+      { code: '3rd', name: 'UK' },
+      { code: '4th', name: 'Greece' },
+      { code: '5th', name: 'Japan' },
+    ];
+  }
+  getClients(): Observable<Customer[]> {
+    return this._http.get<Customer[]>('http://localhost:3000/customer');
+  }
+  deleteClients(): Observable<Customer[]> {
+    return this._http.delete<Customer[]>('http://localhost:3000/customer');
+  }
+  saveCustomer(names: any) {
+    return this._http.post('http://localhost:3000/customer', names);
+  }
+  getCustomerByCode(code: any) {
+    return this._http.get('http://localhost:3000/customer/' + code);
+  }
+  getFormArray(){
+    return this._http.get('http://localhost:3000/associate/');
+  }
 
-    ]
+  getFormArrayByCode(code:any){
+    return this._http.get('http://localhost:3000/associate/'+code);
   }
-  getMembersNames(){
-    return  [
-      {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-      {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-      {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-      {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-      {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-      {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-      {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-      {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-      {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-      {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-    ]; 
+  getCounrtyListForAutoComplete():Observable<Countries[]>{
+    return this._http.get<Countries[]>('http://localhost:3000/country');
+
   }
-  // saveCustomer(data:any){
-  //  return this.http.get()
-  // }
+  saveForms(data:any , code:any){
+    return this._http.put('http://localhost:3000/associate/'+code,data);
   }
+}

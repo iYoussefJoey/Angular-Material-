@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{inputData.title}}</h1>
+<div mat-dialog-content>
+    <h2>Customer Name : <b>{{cuzData?.name}}</b></h2>
+    <h2>Customer E-mail : <b>{{cuzData?.email}}</b></h2>
+    <h2>Customer Phone : <b>{{cuzData?.phone}}</b></h2>
+    <h2>Customer Status : <b>{{cuzData?.status}}</b></h2>
+</div>
+<div mat-dialog-actions>
+    <button (click)="closePop()" mat-raised-button type="button" color="warn">Close</button>
+</div>

@@ -1,4 +1,4 @@
-<!-- <mat-card class="example-card" appearance="outlined">
+<!-- <mat-card  class="example-card" appearance="outlined">
   <mat-card-header class="mid">
     <div class="space-between">
       <mat-card-title class="right">Gate 01</mat-card-title>
@@ -76,7 +76,7 @@
       </mat-card-actions>
     </mat-card>
     <hr> -->
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
   <mat-card>
     <div class="m-all">
       <mat-card-content>
@@ -147,7 +147,7 @@
         <div class="all-width">
           <mat-form-field>
             <mat-label> <mat-icon>address</mat-icon> Address</mat-label>
-            <textarea formControlName="address" matInput id=""></textarea>
+            <textarea formControlName="address" matInput id="" placeholder="Road home"></textarea>
             @if (customerForm.get('address')?.hasError('required')) {<mat-error>
               Address is required </mat-error
             >}
@@ -157,7 +157,7 @@
         <div class="example-container">
           <mat-form-field>
             <mat-label> <mat-icon>work</mat-icon> Term</mat-label>
-            <input formControlName="term" [matAutocomplete]="auto" matInput />
+            <input formControlName="term" [matAutocomplete]="auto" matInput  placeholder="Days"/>
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option [value]="item" *ngFor="let item of termsList">
                 {{ item }}
@@ -171,7 +171,7 @@
 
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
-            <input formControlName="dob" matInput [matDatepicker]="picker" />
+            <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY"/>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle
               matIconSuffix
@@ -208,3 +208,4 @@
     </div>
   </mat-card>
 </form>
+

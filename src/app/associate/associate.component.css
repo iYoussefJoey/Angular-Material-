@@ -1,0 +1,14 @@
+mat-card{
+    margin: 2%;
+}
+
+  
+  .example-full-width {
+    margin-left: 1%;
+  }
+  .mat-mdc-form-field{
+    width: 48%;
+  }
+  .button-save{
+    display: flex;
+  }

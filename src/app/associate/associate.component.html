@@ -1,0 +1,74 @@
+<form class="example-form" [formGroup]="customerForm" (ngSubmit)="(sbumitForm())">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <mat-label>Which customer just came?</mat-label>
+        <mat-select (selectionChange)="cuzChange($event.value)" formControlName="name">
+          <mat-option [value]="item.id" *ngFor="let item of formList">
+            {{ item.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter your NickName please</mat-label>
+        <input formControlName="id" matInput placeholder="Ex. m3lm kaboria" />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        (click)="addAddress()"
+      >
+        <mat-icon>address</mat-icon> Add Address
+      </button>
+      <div formArrayName="address">
+        <mat-card
+          *ngFor="let item of getNewArray.controls; let i = index"
+          [formGroupName]="i"
+          class="mat-elevation-z12"
+        >
+          <mat-card-content>
+            <h1>Address for customer {{ i + 1 }}</h1>
+            <mat-form-field class="example-full-width">
+              <mat-label> <mat-icon>address</mat-icon>Old Address</mat-label>
+              <input matInput formControlName="title" placeholder="Road" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label> <mat-icon> location_on</mat-icon>Country</mat-label>
+              <input (keyup)="autoChange(i)"  matInput [matAutocomplete]="auto" formControlName="country" placeholder="country" />
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let country of filterOptions$ | async" [value]="country.code">{{country.name}}</mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>
+                <mat-icon>location_searching</mat-icon> New Address</mat-label
+              >
+              <input
+                matInput
+                formControlName="fulladdress"
+                placeholder="Road"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label> <mat-icon>add_location</mat-icon> City </mat-label>
+              <input matInput formControlName="city" placeholder="Road" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>
+                <mat-icon>local_post_office</mat-icon> postalCode</mat-label
+              >
+              <input matInput formControlName="postalCode" placeholder="Road" />
+            </mat-form-field>
+            <div class="button-save">
+              <button class="example-button-row" mat-raised-button color="primary" type="submit"> 
+                <mat-icon>save</mat-icon> 
+                Save Data</button>
+              </div>
+              </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

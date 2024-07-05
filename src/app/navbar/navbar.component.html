@@ -1,3 +1,4 @@
+<div class="container">
 <mat-toolbar color="primary" class="mat-elevation-z10">
   <button mat-icon-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
@@ -46,6 +47,7 @@
     >
   </button>
 </mat-toolbar>
+</div>
 <mat-drawer-container autosize>
   <mat-drawer #drawer mode="side" closed>
     <mat-nav-list>
@@ -75,8 +77,8 @@
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLinkActive="cdhover" routerLink="/dialog">
-          <mat-icon>analytics</mat-icon>Pop UP
+        <button mat-button routerLinkActive="cdhover" routerLink="/formarray">
+          <mat-icon>analytics</mat-icon>Form array
         </button>
       </mat-list-item>
       <mat-list-item>

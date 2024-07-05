@@ -1,23 +1,33 @@
-<form [formGroup]="formPop" (ngSubmit)="onSave(formPop)">
+<form [formGroup]="formPop" (ngSubmit)="onSave()">
 
     <h1 mat-dialog-title>{{inputData.title}}!</h1>
     <div mat-dialog-content>
         <mat-form-field class="example-label">
-            <mat-label>Name</mat-label>
-            <input formcontrolname="name" matInput name="" id="">
+            <mat-label>ID</mat-label>
+            <input formControlName="id" matInput >
         </mat-form-field>
         <mat-form-field class="example-label">
-            <mat-label>Email</mat-label>
-    <input formcontrolname="email" type="email" matInput name="" id="">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput >
+        </mat-form-field>
+        <mat-form-field class="example-label">
+            <mat-label>Phone</mat-label>
+    <input formControlName="phone" type="tel" matInput >
   </mat-form-field>
   <mat-form-field class="example-label">
-    <mat-label>Phone</mat-label>
-    <input formcontrolname="phone" type="tel" matInput name="" id="">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput >
 </mat-form-field>
-<mat-checkbox checked="true" formcontrolname="status" color="primary">User Active</mat-checkbox>
-</div>
+  <mat-form-field class="example-label">
+    <mat-label>Choose your status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Active">Active</mat-option>
+      <mat-option value="Not Active">Not Active</mat-option>
+    </mat-select>
+    
+</mat-form-field></div>
 <div mat-dialog-actions>
-    <button type="true" mat-flat-button (click)="closePopUp()" color="primary">
+    <button type="submit" mat-flat-button color="primary">
         <mat-icon>check</mat-icon> Save
     </button>
     <button

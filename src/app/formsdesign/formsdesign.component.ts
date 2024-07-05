@@ -69,7 +69,7 @@ export class FormsdesignComponent implements OnInit {
     })
   }
 
-  onSubmit(customer:FormGroup){
+  onSubmit(){
     console.log(this.customerForm)
   }
   dob(control:FormControl):{[key:string] :  boolean} | null {
